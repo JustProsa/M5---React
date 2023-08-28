@@ -1,0 +1,2 @@
+All' interno del terminale nella cartella in cui si vuole far partire il progetto:
+   npx create-react-app nome-della-cartella-senza-maiuscole 
