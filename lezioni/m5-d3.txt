@@ -1,0 +1,10 @@
+Lo stato di un componente deve riflettere l'interfaccia utente renderizzata: un sito con una lista di card con i prodotti, prima di visualizzarle vengono fetchate da un server.
+Se il server è veloce ok, ma se per caso è lento potremmo non avere subito le card, quindi l'utente vede una pagina vuota, e solo quando riceveremo i dati dalla fetch() l'utente vedrà le card.
+E' sempre bene gestire il LOADING delle informazioni con uno spinner ad esempio.
+Sempre mostrare errori se ce ne sono
+Un input nasce con uno stato iniziale (striga vuota), poi l'utente lo modifica e il suo valore cambia, poi viene usato per effettuare la ricerca.
+
+QUANDO VANNO USATE LE FETCH IN REACT?
+Non possono essere fatte dopo che il componente è stato montato, al massimo durante... vanno gestite nei cosiddetti life-cycle
+
+Se l'input è vuoto lo STATO deve essere stringa vuota , se è pieno deve essere quel valore come stringa.
