@@ -30,7 +30,7 @@ const Jumbotron = () => {
             WELCOME TO EPIBOOKS
           </h1>
           <SearchForm className="position-absolute top-50 start-50 translate-middle" />
-          <ProvaCounter />
+          {/* <ProvaCounter /> */}
         </Card.Body>
       </Card>
     </>

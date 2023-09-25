@@ -46,7 +46,7 @@ const SingleComment = ({ comment, rate, author, commentID }) => {
         <Card.Header className="d-flex justify-content-between align-middle">
           <p className="p-0 m-0">Comment</p>
           <ButtonGroup aria-label="Basic example">
-            <Button variant="warning">Edit</Button>
+            {/* <Button variant="warning">Edit</Button> */}
             <Button variant="danger" onClick={deleteComment}>
               Delete
             </Button>

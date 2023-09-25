@@ -20,8 +20,20 @@ const BookContext = ({ children }) => {
   const TOKEN =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTExYTk5OGIyYjJhZTAwMTRiMzQ2ZjYiLCJpYXQiOjE2OTU2NTYzNDUsImV4cCI6MTY5Njg2NTk0NX0.BDTfLtWC6nJAvhAj9Jo-AO5HJEIkR68Pwdvg_btOu60";
 
+  const getBooksFromAPI = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`https://epibooks.onrender.com`);
+      const data = await response.json();
+      setBooks(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const getCommentsFromAPI = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments/`,
         {
@@ -39,14 +51,15 @@ const BookContext = ({ children }) => {
       } else {
         console.error("Errore nella richiesta GET dei commenti");
       }
+      setIsLoading(false);
     } catch (error) {
       console.error("Errore nella richiesta GET", error);
     }
   };
 
   useEffect(() => {
-    // getBooksFromAPI();
-    setBooks(fantasy);
+    getBooksFromAPI();
+    // setBooks(fantasy);
     console.log(books);
     getCommentsFromAPI();
   }, []);

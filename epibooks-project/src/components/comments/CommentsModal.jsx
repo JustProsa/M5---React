@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Spinner } from "react-bootstrap";
 import { BookProvider } from "../../contexts/bookContext";
 import SingleComment from "../singleComment/SingleComment";
 import { nanoid } from "nanoid";
 import AddComment from "../addComment/AddComment";
 
 const CommentsModal = ({ asin }) => {
-  const { comments, setComments } = useContext(BookProvider);
+  const { comments, setComments, isLoading } = useContext(BookProvider);
   const [lgShow, setLgShow] = useState(false);
 
   const filteredComments = comments.filter(
@@ -37,6 +37,16 @@ const CommentsModal = ({ asin }) => {
             style={{ width: "100%", marginBottom: "1rem" }}
             asin={asin}
           />
+          {isLoading && (
+            <Spinner
+              animation="border"
+              role="status"
+              style={{ margin: "auto auto" }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          )}
+
           {filteredComments.map((comment) => (
             <SingleComment
               author={comment.author}
